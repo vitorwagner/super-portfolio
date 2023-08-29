@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  {% if profile %}
-  <h1>{{profile.name}}</h1>
-  <p>{{profile.github}}</p>
-  <p>{{profile.linkedin}}</p>
-  <p>{{profile.bio}}</p>
-
-  {% endif %}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if profile %}
+    <h1>{{profile.name}}</h1>
+    <p>{{profile.github}}</p>
+    <p>{{profile.linkedin}}</p>
+    <p>{{profile.bio}}</p>
+    <h2>Projetos</h2>
+    {% for project in projects %}
+    <h3>{{ project.name }}</h3>
+    <span>{{ project.keyword }}{{ project.key_skill }}{{ project.description}}</span>
+    {% endfor %}
+    <h2>Certificados</h2>
+    {% for certificate in certificates %}
+    <span>{{certificate.name}}{{certificate.certifying_institution}}</span>
+    {% endfor %} {% endif %}
+  </body>
 </html>
